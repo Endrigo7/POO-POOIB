@@ -36,6 +36,7 @@ classDiagram
     ContaCorrente --> Cliente
     ContaCorrente : -String numero
     ContaCorrente : -double saldo
+    ContaCorrente: +gerarNumero()
     ContaCorrente: +creditar(valor)
     ContaCorrente: +debitar(valor)
     ContaCorrente: +transferir(valor, contaDestino)
