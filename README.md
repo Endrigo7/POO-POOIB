@@ -22,4 +22,29 @@ flowchart TD
 ``` 
 
 ### Entidades
-* Suas classes models são Cliente, ContaCorrente, Poupanca.
+* Suas classes models são Cliente, ContaCorrente, Poupanca
+
+| Classe        | Função                                                    |
+|---------------|-----------------------------------------------------------|
+| ContaCorrente | Camada responsável por ser a interface com o usuário      |
+| Poupanca      | Camada responsável pelas regras de negcio                 |
+| Cliente       | Camada responsável por persistencia dos dos dados         |
+
+```mermaid
+classDiagram
+    ContaCorrente <|-- Poupanca
+    ContaCorrente --> Cliente
+    ContaCorrente : -String numero
+    ContaCorrente : -double saldo
+    ContaCorrente: +creditar(valor)
+    ContaCorrente: +debitar(valor)
+    ContaCorrente: +transferir(valor, contaDestino)
+    class Poupanca{
+      -double TAXA_DE_JURORS
+      +rendeJuros()
+    }
+    class Cliente{
+      +String nome
+      +String cpf
+    }
+```
